@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Gist Theme Wp
+Plugin Name: Theme Gist Embed
 Plugin URI: https://datogedon.com/wordpress/plugins/gist-theme-wp/
 Description: Change the theme of your embedded gists.
 Version: 1.0.0
@@ -10,7 +10,7 @@ Author URI: https://datogedon.com
 License: GPLv2 or later
 */
 
-$option_name = "current_gist_theme_wp";
+$option_name = "current_theme_gist_embed";
 $defaultTheme = "obsidian";
 
 if (get_option($option_name)) {
@@ -19,11 +19,11 @@ if (get_option($option_name)) {
     add_option($option_name, $defaultTheme);
 }
 
-add_action('admin_menu', 'gist_theme_wp_setup_menu');
+add_action('admin_menu', 'theme_gist_embed_setup_menu');
 
-function gist_theme_wp_setup_menu()
+function theme_gist_embed_setup_menu()
 {
-    add_menu_page('Gist Theme Config', 'Gist Theme', 'manage_options', 'gist-theme-wp', 'gist_theme_wp');
+    add_menu_page('Theme Gist Embed Config', 'Theme Gist', 'manage_options', 'theme-gist-embed', 'theme_gist_embed');
 }
 
 
@@ -35,9 +35,9 @@ wp_enqueue_script('vuejs251', 'https://unpkg.com/vue@2.5.2');
 wp_enqueue_style('gistthemecode');
 wp_enqueue_style('defaultvalues');
 
-function gist_theme_wp()
+function theme_gist_embed()
 {
-    echo "<h1>Gist Theme Config</h1>";
+    echo "<h1>Theme Gist Embed Config</h1>";
     include "make.php";
 }
 

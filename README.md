@@ -1,4 +1,4 @@
-=== Gist Theme WP ===
+=== Theme Gist Embed ===
 Contributors: baldomerocho
 Tags: github gist, gist theme github, gist code, code with gist theme, change theme gist
 Donate link: https://www.paypal.com/donate?hosted_button_id=FY8NBZJSJ6RXW

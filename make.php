@@ -2,7 +2,7 @@
 
 <?php
 // VALIDATE IF CURRENT GIST THEME WP IS CHANGED ON POST
-$option_name = "current_gist_theme_wp";
+$option_name = "current_theme_gist_embed";
 $new_value = $_POST["newGistThemeWPSelected"];
 $get_option = get_option($option_name);
 $showAlert=0;
@@ -40,7 +40,7 @@ if ($_POST["newGistThemeWPSelected"] != "" && $_POST["newGistThemeWPSelected"] !
 
 <script>
     (async () => {
-        const productsResponse = await fetch(<?php echo '"' . plugins_url('gist-theme-wp/options.json', dirname(__FILE__)) . '"'?>);
+        const productsResponse = await fetch(<?php echo '"' . plugins_url('theme-gist/options.json', dirname(__FILE__)) . '"'?>);
         const products = await productsResponse.json();
 
         new Vue({
@@ -49,14 +49,14 @@ if ($_POST["newGistThemeWPSelected"] != "" && $_POST["newGistThemeWPSelected"] !
                 return {
                     items: products,
                     selection: <?php echo '"' . $get_option . '"'?>,
-                    ruta: <?php echo '"' . plugins_url('gist-theme-wp/themes-gist/', dirname(__FILE__)) . '"'?>,
+                    ruta: <?php echo '"' . plugins_url('theme-gist/themes-gist/', dirname(__FILE__)) . '"'?>,
                     showalertsw2: <?php echo $showAlert?>
                 }
             },
             mounted(){
 
                 if (this.showalertsw2) {
-                    Swal.fire(this.selection+' selected', `Gist Theme Updated`, `success`);
+                    Swal.fire(this.selection.toUpperCase()+' selected', `Gist Theme Updated`, `success`);
                 }
             }
         })
