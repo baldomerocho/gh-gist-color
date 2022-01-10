@@ -13,27 +13,31 @@ License: GPLv2 or later
 $option_name = "current_gist_theme_wp";
 $defaultTheme = "obsidian";
 
-if(get_option($option_name)){
+if (get_option($option_name)) {
     $currentTheme = get_option($option_name);
-}
-else {
+} else {
     add_option($option_name, $defaultTheme);
 }
 
 add_action('admin_menu', 'gist_theme_wp_setup_menu');
 
-function gist_theme_wp_setup_menu(){
-    add_menu_page( 'Gist Theme Config', 'Gist Theme', 'manage_options', 'gist-theme-wp', 'gist_theme_wp' );
+function gist_theme_wp_setup_menu()
+{
+    add_menu_page('Gist Theme Config', 'Gist Theme', 'manage_options', 'gist-theme-wp', 'gist_theme_wp');
 }
 
 
-wp_register_style('gistthemecode', plugins_url('stylesheets/'.$currentTheme.'.css',__FILE__ ));
-wp_register_style('defaultvalues', plugins_url('stylesheets/defaultvalues.css',__FILE__ ));
+wp_register_style('gistthemecode', plugins_url('stylesheets/' . $currentTheme . '.css', __FILE__));
+wp_register_style('defaultvalues', plugins_url('stylesheets/defaultvalues.css', __FILE__));
+wp_enqueue_script('sweetalert2', '//cdn.jsdelivr.net/npm/sweetalert2@11');
+wp_enqueue_script('vuejs251', 'https://unpkg.com/vue@2.5.2');
 
-wp_enqueue_style( 'gistthemecode' );
-wp_enqueue_style( 'defaultvalues' );
+wp_enqueue_style('gistthemecode');
+wp_enqueue_style('defaultvalues');
 
-function gist_theme_wp(){
+function gist_theme_wp()
+{
     echo "<h1>Gist Theme Config</h1>";
     include "make.php";
 }
+
