@@ -1,0 +1,17 @@
+body .gist tr td{
+    border:none;
+}
+body .gist tr td:hover{
+    color:yellow !important
+}
+/* Mozilla based browsers */
+::-moz-selection {
+    background-color:	#FFA;
+    color:				#000;
+}
+
+/* Works in Safari */
+::selection {
+    background-color:	#FFA;
+    color:				#000;
+}

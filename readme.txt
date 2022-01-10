@@ -1,0 +1,32 @@
+=== Gist Theme WP ===
+Contributors: baldomerocho
+Tags: github gist, gist theme github, gist code, code with gist theme, change theme gist
+Donate link: https://www.paypal.com/donate?hosted_button_id=FY8NBZJSJ6RXW
+Requires at least: 5.0
+Tested up to: 5.0
+Requires PHP: 7.4
+Stable tag: stable
+License: GPLv2 or later
+
+Change the theme of your embedded gists.
+
+== Description ==
+Change the theme of your embedded gists.
+When you insert your gist from github.com it is displayed with the default theme or git layout.
+But we can change the layout of the code to display as in our code editors.
+
+== Installation ==
+Upload the Gist Theme WP plugin to your blog, activate it and you\'re done.
+
+== Frequently Asked Questions ==
+is official Github?
+No, not is official plugin.
+
+== Screenshots ==
+1. Simple Panel Admin
+
+== Changelog ==
+1.0.0
+
+== Upgrade Notice ==
+All ready
