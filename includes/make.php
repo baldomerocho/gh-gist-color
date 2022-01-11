@@ -9,7 +9,7 @@ $get_option = get_option($option_name);
 if ($_POST["newGistThemeWPSelected"] != "" && $_POST["newGistThemeWPSelected"] != $get_option) {
     if ($get_option != $new_value) {
         update_option($option_name, $new_value);
-        echo '<div class="notice notice-success is-dismissible" style="max-width: 700px">
+        echo '<div class="notice notice-success" style="max-width: 700px">
              <p><strong>'.strtoupper($new_value).'</strong> selected and saved.</p>
          </div>';
     } else {
