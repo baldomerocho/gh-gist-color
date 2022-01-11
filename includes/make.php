@@ -27,7 +27,7 @@ if ($_POST["newGistThemeWPSelected"] != "" && $_POST["newGistThemeWPSelected"] !
 <div id="appx" class="wrap">
     <h1>Theme Gist Embed Config</h1>
     <h2>Current theme: {{selection.toUpperCase()}}</h2>
-    <img :src="ruta+selection+'.png'" alt="" style="margin:20px 0">
+    <img :src="ruta+selection+'.jpeg'" alt="" style="margin:20px 0">
     <form id="updateGistThemeWP" name="updateGistThemeWP" method="POST">
         <select id="newGistThemeWPSelected" size="1" v-model="selection" name="newGistThemeWPSelected">
             <option v-for="item in items" :value="item">{{item.toUpperCase()}}</option>
