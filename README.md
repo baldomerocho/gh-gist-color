@@ -3,9 +3,9 @@ Contributors: baldomerocho
 Tags: github gist, gist theme github, gist code, code with gist theme, change theme gist
 Donate link: https://www.paypal.com/donate?hosted_button_id=FY8NBZJSJ6RXW
 Requires at least: 5.0
-Tested up to: 5.0
+Tested up to: 5.8.3
 Requires PHP: 7.4
-Stable tag: stable
+Stable tag: 1.0.0
 License: GPLv2 or later
 
 Change the theme of your embedded gists.

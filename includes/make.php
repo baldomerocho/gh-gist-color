@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit;  ?>
 <html>
 
 <?php
@@ -5,16 +6,14 @@
 $option_name = "current_theme_gist_embed";
 $new_value = $_POST["newGistThemeWPSelected"];
 $get_option = get_option($option_name);
-$showAlert=0;
 if ($_POST["newGistThemeWPSelected"] != "" && $_POST["newGistThemeWPSelected"] != $get_option) {
     if ($get_option != $new_value) {
         update_option($option_name, $new_value);
-        $showAlert=1;
+        echo '<div class="notice notice-success is-dismissible" style="max-width: 700px">
+             <p><strong>'.strtoupper($new_value).'</strong> selected and saved.</p>
+         </div>';
     } else {
-        $deprecated = ' ';
-        $autoload = 'no';
-        add_option($option_name, $new_value, $deprecated, $autoload);
-        $showAlert=0;
+        add_option($option_name, $new_value, ' ', 'no');
     }
     $get_option = get_option($option_name);
 
@@ -22,17 +21,18 @@ if ($_POST["newGistThemeWPSelected"] != "" && $_POST["newGistThemeWPSelected"] !
 }
 ?>
 
-<body style="vh">
+<body>
 
 <!-- CREATE FORM FOR UPDATE OR CHANGE GIST THEME WP -->
-<div id="app">
+<div id="appx" class="wrap">
+    <h1>Theme Gist Embed Config</h1>
     <h2>Current theme: {{selection.toUpperCase()}}</h2>
     <img :src="ruta+selection+'.png'" alt="" style="margin:20px 0">
     <form id="updateGistThemeWP" name="updateGistThemeWP" method="POST">
         <select id="newGistThemeWPSelected" size="1" v-model="selection" name="newGistThemeWPSelected">
             <option v-for="item in items" :value="item">{{item.toUpperCase()}}</option>
         </select>
-        <input type="submit" value="Save" style=""/>
+        <input type="submit" value="Save" class="button button-primary"/>
 
     </form>
 </div>
@@ -40,23 +40,16 @@ if ($_POST["newGistThemeWPSelected"] != "" && $_POST["newGistThemeWPSelected"] !
 
 <script>
     (async () => {
-        const productsResponse = await fetch(<?php echo '"' . plugins_url('theme-gist/options.json', dirname(__FILE__)) . '"'?>);
+        const productsResponse = await fetch("<?php echo plugin_dir_url( dirname(__FILE__ ) ) . 'options.json'; ?>");
         const products = await productsResponse.json();
 
         new Vue({
-            el: '#app',
+            el: '#appx',
             data() {
                 return {
                     items: products,
-                    selection: <?php echo '"' . $get_option . '"'?>,
-                    ruta: <?php echo '"' . plugins_url('theme-gist/themes-gist/', dirname(__FILE__)) . '"'?>,
-                    showalertsw2: <?php echo $showAlert?>
-                }
-            },
-            mounted(){
-
-                if (this.showalertsw2) {
-                    Swal.fire(this.selection.toUpperCase()+' selected', `Gist Theme Updated`, `success`);
+                    selection: "<?php echo $get_option?>",
+                    ruta: "<?php echo plugin_dir_url( dirname(__FILE__ ) ) . 'themes-gist/'; ?>",
                 }
             }
         })
