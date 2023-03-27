@@ -4,7 +4,7 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
     die;
 }
 
-$option_name = 'current_theme_gist_embed';
+$option_name = 'current_theme_gh_gist_color';
 
 delete_option($option_name);
 
