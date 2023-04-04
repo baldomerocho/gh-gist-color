@@ -1,4 +1,4 @@
-=== GH Gist Color ===
+=== Theme your Gist ===
 Contributors: baldomerocho
 Tags: github gist, gist theme github, gist code, code with gist theme, change theme gist
 Donate link: https://www.paypal.com/donate?hosted_button_id=FY8NBZJSJ6RXW
@@ -16,7 +16,7 @@ When you insert your gist from github.com it is displayed with the default theme
 But we can change the layout of the code to display as in our code editors.
 
 == Installation ==
-Upload the GH Gist Color plugin to your blog, activate it and you\'re done.
+Upload the Theme your Gist plugin to your blog, activate it and you\'re done.
 
 == Frequently Asked Questions ==
 is official Github?

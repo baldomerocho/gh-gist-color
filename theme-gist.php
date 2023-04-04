@@ -2,7 +2,7 @@
 if (!defined('ABSPATH')) exit;
 
 /*
-Plugin Name: GH Gist Color
+Plugin Name: Theme your Gist
 Plugin URI: https://datogedon.com/wordpress/plugins/gist-theme-wp/
 Description: Change the theme of your embedded gists.
 Version: 1.0.0
@@ -11,7 +11,7 @@ Author URI: https://datogedon.com
 License: GPLv2 or later
 */
 
-$option_name = "current_gh_gist_color";
+$option_name = "current_theme_gist";
 $options = array(
 "chaos", "cobalt", "idle-fingers", "monokai", "obsidian", "one-dark",
 "pastel-on-dark", "solarized-dark", "solarized-light", "terminal",
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-function gh_gist_color_enqueue_scripts()
+function theme_gist_enqueue_scripts()
 {
 global $option_name, $options;
 
@@ -39,21 +39,21 @@ wp_register_style('defaultvalues', plugins_url('stylesheets/defaultvalues.css', 
     wp_enqueue_style('defaultvalues');
 }
 
-add_action('wp_enqueue_scripts', 'gh_gist_color_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'theme_gist_enqueue_scripts');
 add_action('admin_menu', 'get_button_admin');
 
 function get_button_admin()
 {
     add_menu_page(
-        'GH Gist Color',
-        'GH Gist Color',
+        'Theme your Gist',
+        'Theme your Gist',
         'manage_options',
         'gh-gist-color-config',
-        'gh_gist_color_config'
+        'theme_gist_config'
     );
 }
 
-function gh_gist_color_config()
+function theme_gist_config()
 {
     global $options, $option_name;
     $current_value = get_option($option_name);
